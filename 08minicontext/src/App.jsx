@@ -2,13 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import UserContextProvider from './context/UserContextProvider'
 
 function App() {
 
   return (
-    <>
-    <h1>back for context api</h1>
-    </>
+    <UserContextProvider>
+      <h1>Back with Context api</h1> 
+    </UserContextProvider>
   )
 }
 
