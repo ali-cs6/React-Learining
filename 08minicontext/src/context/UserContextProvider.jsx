@@ -1,12 +1,13 @@
-import react from "react";
-import UserCotext from "./UserContext";
+import React from "react";
+import UserContext from "./UserContext";
 
-const UserContextProvider = ({childern}) => {
-    const [user, setUser] = React.useState(null);
+//here we will export a method to export what we mean to
+const UserContextProvider = ({childern}) => { //childern here is what it recive will be passed onward
+    const [user, setUser] = React.useState(null); //this is the data passed onward. 
     return(
-        <UserCotext.Provider value={{user, setUser}}>
+        <UserContext.Provider value={{user, setUser}}>
             {childern}
-        </UserCotext.Provider> 
+        </UserContext.Provider> 
     )
 }
 
