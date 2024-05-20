@@ -1,5 +1,6 @@
 import React from 'react';
 
+//below, we can do this as well --> Card(props)  but whenever we have to pass properties, we have to do that as,      props.username Or props.btnText 
 function Card({className, btnText = "Click"}) { //its like an empty object, that helps to pass diff properties inside our components, we set such properties in the form of attributes to rendering of these components in App.jsx
 //btnText has default value here too, if the property value doenst pass for some reason then this will be displayed
 //such default value can also be passed in html below like, {btnText || "Click"} inside the button tag
