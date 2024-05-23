@@ -5,6 +5,8 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false);  //number include or nottext
   const [charAllowed, setCharAllowed] = useState(false); //characters allowed or not
   const [password, setPassword] = useState(""); //to gen pass
+  const [btnColor, setBtnColor] = useState('')
+
   //useCallback function is a hook which accept a function and its dependencies
   //it let you cache a fn definition btwn re-renders
   // hold up the execution still, before re-rendring a method for other functions(dependencies)
@@ -22,16 +24,18 @@ function App() {
 
   }, [length, numberAllowed, charAllowed])
 
-  const copyPasswordToClipboard = useCallback(()=>{
-    window.navigator.clipboard.writeText(password);
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select(); //it will highlight the area we want to copy
+    // passwordRef.current?.setSelectionRange(5, 20); //for this range of selection to work, writing the above line is necessory 
+    window.navigator.clipboard.writeText(password); //this line copy the text into clipboard
   }, [password])
 
-  //useEffect hook let u syncronyze with external system, sync changes
-  useEffect(()=>{
+  //useEffect hook let u syncronyze with external system, it sync changes
+  useEffect(() => {
     passwordGenerator();
-  }, [length, numberAllowed, charAllowed, passwordGenerator ])
+  }, [length, numberAllowed, charAllowed, passwordGenerator])
 
-  //useRef, refer a value that not needed for rendering
+  //useRef, persist values on re-render and it doesnt cause any re-rendring by itself
   const passwordRef = useRef(null)
 
 
@@ -48,51 +52,58 @@ function App() {
             readOnly
             ref={passwordRef}
           />
-          <button onClick={copyPasswordToClipboard}
+          <button
+            onClick={(e) => {
+              copyPasswordToClipboard();
+              setBtnColor("olive");
+              e.target.innerHTML = 'Copied'
+            }
+            }
+            style={{backgroundColor: btnColor}}
           className='outline-none bg-blue-700 text-white px-3 py0.5 shrink-0'
           >Copy</button>
-        </div>
-
-        <div className='flex text-sm gap-x-2'>
-          <div className='flex items-center gap-x-1'>
-            <input
-              type="range"
-              id='rangeInput'
-              min={6}
-              max={100}
-              value={length}
-              className='cursor-pointer'
-              onChange={(e) => { setlenth(e.target.value) }}
-            />
-            <label htmlFor='rangeInput'>Length: {length}</label>
-          </div>
-
-          <div className="flex items-center gap-x-1">
-            <input
-              type="checkbox"
-              id='numberInput'
-              defaultChecked={numberAllowed}
-              onChange={() => {
-                setNumberAllowed((prev) => !prev)
-              }}
-            />
-            <label htmlFor="numberInput">Number</label>
-          </div>
-
-          <div className="flex items-center gap-x-1">
-            <input
-              type="checkbox"
-              id='charInput'
-              defaultChecked={numberAllowed}
-              onChange={() => {
-                setNumberAllowed((prev) => !prev)
-              }}
-            />
-            <label htmlFor="charInput">Character</label>
-          </div>
-
-        </div>
       </div>
+
+      <div className='flex text-sm gap-x-2'>
+        <div className='flex items-center gap-x-1'>
+          <input
+            type="range"
+            id='rangeInput'
+            min={6}
+            max={100}
+            value={length}
+            className='cursor-pointer'
+            onChange={(e) => { setlenth(e.target.value) }}
+          />
+          <label htmlFor='rangeInput'>Length: {length}</label>
+        </div>
+
+        <div className="flex items-center gap-x-1">
+          <input
+            type="checkbox"
+            id='numberInput'
+            defaultChecked={numberAllowed}
+            onChange={() => {
+              setNumberAllowed((prev) => !prev)
+            }}
+          />
+          <label htmlFor="numberInput">Number</label>
+        </div>
+
+        <div className="flex items-center gap-x-1">
+          <input
+            type="checkbox"
+            id='charInput'
+            defaultChecked={charAllowed}
+            onChange={() => {
+              setCharAllowed((prev) => !prev)
+            }}
+          />
+          <label htmlFor="charInput">Character</label>
+        </div>
+
+      </div>
+    </div >
     </>
   )
 }
