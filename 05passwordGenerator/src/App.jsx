@@ -7,6 +7,7 @@ function App() {
   const [password, setPassword] = useState(""); //to gen pass
   //useCallback function is a hook which accept a function and its dependencies
   //it let you cache a fn definition btwn re-renders
+  // hold up the execution still, before re-rendring a method for other functions(dependencies)
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; //rand text for pass will be taken from here
