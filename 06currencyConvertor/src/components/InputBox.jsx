@@ -4,11 +4,11 @@ function InputBox({
     label, //for labels like "To" and "From"
     amount, //for input Currency
     onAmountChange,
-    amountDisable = false, //WTF
+    amountDisable = false, // input is availble or not. when true, user cant input
     onCurrencyChange, //for currency picks/choice to exchange
     currencyOptions = [], //selected currency options
     selectCurrency = "usd",
-    currencyDisable = false,
+    currencyDisable = false, // same as amount disabled
     className = ""}) { 
         const AmountInputId = useId()
     return (

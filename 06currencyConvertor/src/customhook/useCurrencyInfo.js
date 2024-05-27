@@ -1,4 +1,4 @@
-//we can import buildin hooks and make use of them to do our taks
+//we can import buildin hooks and make use of them to do our tasks
 
 import {useEffect, useState} from "react"
 
@@ -9,7 +9,7 @@ function useCurrencyInfo(currency){
         fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
         .then((resp) => resp.json())
         .then((resp)=> setData(resp[currency]));
-        // console.log(data);
+        console.log(data);
     }, [currency])
     return data;
 }
