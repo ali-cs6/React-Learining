@@ -1,5 +1,7 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
+// link is used instead of <a> tag, coz <a> tag refresh/redirect the whole page and react dont have such feature, so to avoid this, we use react router dom which give us this functionality via link tag.
+// navLink is same as link but it has some extra features.
 
 export default function Header() {
     return (
