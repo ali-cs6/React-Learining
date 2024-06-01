@@ -5,6 +5,8 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  //actually we dont need this app.jsx file in react router
+  // because the router has its own way of exporting with in the main.jsx
 
   return (
     <>

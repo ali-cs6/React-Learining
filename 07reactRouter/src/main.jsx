@@ -44,6 +44,8 @@ const router = createBrowserRouter(
     )
 
 
+    // RouterProvider = provide routing capabilities in our react application
+    // router is an object provide routing configs and other routing logics
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />

@@ -21,6 +21,7 @@ export default function Github(){
     )
 }
 
+// optimise approach
 export const githubInfoLoader = async () => {
     const response = await fetch('https://api.github.com/users/ali-cs6')
     return response.json()
