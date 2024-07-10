@@ -18,7 +18,7 @@ export const todoSlice = createSlice({ // keys in this object is not our own, it
             state.todos.push(todo) // add the new todo to the current state
         },
         removeTodo: (state, action)=>{
-            state.todos = state.todos.filter((todo)=> todo.id !== action.payload) //fltr out the whose id= that of action as it carries the id of the todo which is under any action
+            state.todos = state.todos.filter((todo)=> todo.id !== action.payload) //fltr out whose id= that of action as it carries the id of the todo which is under any action
         },
         updateTodo: (state, action)=>{
             state.todos = state.todos.map((todo)=> todo.id === action.payload.id ? {...todo, text: action.payload} : todo)

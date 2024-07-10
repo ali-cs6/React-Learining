@@ -7,7 +7,7 @@ import { removeTodo, updateTodo } from '../features/todo/todoSlice'
 function Todos() {
     // const [isTodoEditable, setIsTodoEditable] = useState(true)
     // const [todoText, setTodoText] = useState('')
-    const Todos = useSelector(state => state.todos) // taking in all todos
+    const Todos = useSelector(state => state.todos) // taking in all todos/select
     const dispatch = useDispatch()
 
 

@@ -1,7 +1,7 @@
 import { useContext, createContext } from "react";
 
 // first we create the context
-export const ThemeContext = createContext({
+export const ThemeContext = createContext({ // every prop/method is passed in an object
     themeMode: "light",
     darkTheme: ()=> {},
     lightTheme: ()=> {},

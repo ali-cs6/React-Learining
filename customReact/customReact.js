@@ -1,4 +1,4 @@
-function customRender(reactElement, container){ //this function will do the whole function, first parameter is what we will inject, 2nd parameter is where we will inject our element
+function customRender(reactElement, container){ //this function will do whole work, first parameter is what we will inject, 2nd parameter is where we will inject our element
     //this is not an optimized code lol
     /*
     const domElement = document.createElement(reactElement.type);

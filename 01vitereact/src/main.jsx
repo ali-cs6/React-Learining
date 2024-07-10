@@ -32,11 +32,11 @@ const ReactElement = { //inject. this is how jsx form is converted, this is how 
 
 // method of creating elemnts through react imported in first line of this file
 // we can inject more JS into React elemnts below, like...
-const insideRactElement = 'This is injected inside React Element from out side the object/function';
+const insideRactElement = 'This is injected inside React Element from out side the element itself';
 const ReactElement = React.createElement( // this synatx is all by react, we should strictly follow
     'a',
     {href: 'https://google.com', target: '_blank'}, //this is necessory, empty if no attributes
-    'Click me to fucking visit Google!',
+    'Click me to visit Google!',
     insideRactElement //we just have to mention for the final outcome/evaluated code here
 )
 

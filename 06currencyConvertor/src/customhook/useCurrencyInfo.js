@@ -4,9 +4,9 @@ import {useEffect, useState} from "react"
 
 // ourown custom hook
 function useCurrencyInfo(currency){
-    const [data, setData] = useState({});
+    const [data, setData] = useState({}); //this initiation in useState helps to prevent crashes if api is not availble
     useEffect(()=>{
-        fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
+        fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`)
         .then((resp) => resp.json())
         .then((resp)=> setData(resp[currency]));
         console.log(data);

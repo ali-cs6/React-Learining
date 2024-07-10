@@ -10,7 +10,7 @@ function AddTodo() {
     const addTodoHandler = (e)=>{ //on clicking to add a todo
         e.preventDefault() // to prevent form submiting behavior
         if(input.length > 0){
-            dispatch(addTodo(input)) //todo added to the store like this
+            dispatch(addTodo(input)) //everything is setup in the slice, addTodo reducer. just the action.payload is what takes the text from input
             setInput('') //this will make the input box empty again
         }
         
